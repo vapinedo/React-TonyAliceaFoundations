@@ -1,5 +1,21 @@
-const listElement = document.getElementById("list");
-const newListItem = document.createElement("li");
-newListItem.textContent = "Item 3";
 
-setTimeout(() => listElement.appendChild(newListItem), 2000);
+const countApp = {
+    getCount: () => {
+        const countElement = document.getElementById("count");
+        return Number(countElement.textContent);
+    },
+    
+    setCount: (val) => {
+        const countElement = document.getElementById("count");
+        countElement.textContent = val;
+    }
+};
+
+function setCount() {
+    let count = countApp.getCount();
+    if (count >= 5) {
+        countApp.setCount(0);
+    } else {
+        countApp.setCount(count + 1);
+    }
+}
