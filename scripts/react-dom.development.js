@@ -11063,19 +11063,27 @@
       setTextContent(domElement, '');
     }
     function commitTextUpdate(textInstance, oldText, newText) {
+      console.log(`Updating text ${newText}`);
       textInstance.nodeValue = newText;
     }
     function appendChild(parentInstance, child) {
+      console.log(`Appending child ${child}`);
       parentInstance.appendChild(child);
     }
     function appendChildToContainer(container, child) {
       var parentNode;
   
       if (container.nodeType === COMMENT_NODE) {
+        console.log(`Inserting child in container...`);
+        console.log(child);
         parentNode = container.parentNode;
         parentNode.insertBefore(child, container);
       } else {
         parentNode = container;
+        console.log(`Appending child to the container...`);
+        console.log(child); 
+        console.log(`The container is...`);
+        console.log(parentNode); 
         parentNode.appendChild(child);
       } // This container might be used for a portal.
       // If something inside a portal is clicked, that click should bubble
