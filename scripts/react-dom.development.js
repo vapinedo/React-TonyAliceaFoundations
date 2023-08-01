@@ -11067,7 +11067,8 @@
       textInstance.nodeValue = newText;
     }
     function appendChild(parentInstance, child) {
-      console.log(`Appending child ${child}`);
+      console.log(`Appending child ...`);
+      console.log(`${child}`);
       parentInstance.appendChild(child);
     }
     function appendChildToContainer(container, child) {
@@ -11114,6 +11115,7 @@
     }
   
     function removeChild(parentInstance, child) {
+      console.log("Remove Child");
       parentInstance.removeChild(child);
     }
     function removeChildFromContainer(container, child) {
