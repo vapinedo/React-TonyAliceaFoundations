@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding React</title>
+    <style>
+        .button {
+            background-color: blue;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <main id="app"></main>
+    <p>
+        <button onclick="rerender()">Rerender</button>
+    </p>
 
     <script src="scripts/react.development.js"></script>
     <script src="scripts/react-dom.development.js"></script>
