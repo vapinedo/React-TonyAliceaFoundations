@@ -1,48 +1,36 @@
 const rootNode = document.getElementById("app");
 const root = ReactDOM.createRoot(rootNode);
-console.log(root);
 let counterName = "One";
 root.render(<App />);
 
 function App() {
-    const counterOne = <Counter name={counterName} />;
-    const counterTwo = <Counter2 name={counterName} />;
     return (
         <>
             <h1>Counters</h1>
             <section>
-                {counterName === "One" ? counterOne : counterTwo}
-            </section>
+                <Counter name="One" />
+            </section> 
         </>
     ); 
 }
 
-function Counter({ name }) {
+function Counter(props) {
+
+    const [state, dispatch] = React.useReducer((state, action) => {
+        switch(action.type) {
+            case "increment": {
+                return { clicks: state.clicks + 1 }
+            }
+            default: 
+                throw new Error();
+        }
+    }, {clicks: 0});
+    
     return (
         <article>
-            <h2>Counter {name}</h2>
-            <p>Counter 1: You clicked 1 times</p>
-            <button className="button">Click me</button>
+            <h2>Counter {props. name}</h2>
+            <p>Counter 1: You clicked {state.clicks} times</p>
+            <button onClick={() => dispatch({ type: "increment" })} className="button">Click me</button>
         </article>        
     );
 }
-
-function Counter2({ name }) {
-    return (
-        <article>
-            <h2>Counter {name}</h2>
-            <p>Counter 2: You clicked 1 times</p>
-            <button className="button">Click me</button>
-        </article>        
-    );
-}
-
-function rerender() {
-    console.log("Rerender...");
-    counterName = "Two";
-    root.render(<App />);   
-}
-
-rootNode.addEventListener("click", function(event) {
-   console.log(event); 
-});

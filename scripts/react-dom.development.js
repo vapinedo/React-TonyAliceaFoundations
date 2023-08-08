@@ -17693,7 +17693,7 @@
             ReactCurrentDispatcher$1.current = prevDispatcher;
           }
         },
-        useReducer: function (reducer, initialArg, init) {
+        useReducer : function (reducer, initialArg, init) {
           currentHookNameInDev = 'useReducer';
           mountHookTypesDev();
           var prevDispatcher = ReactCurrentDispatcher$1.current;
