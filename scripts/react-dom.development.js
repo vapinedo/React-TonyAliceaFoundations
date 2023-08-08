@@ -1231,6 +1231,7 @@
     }
   
     function describeFiber(fiber) {
+      console.log("Fiber", fiber);
       var owner =  fiber._debugOwner ? fiber._debugOwner.type : null ;
       var source =  fiber._debugSource ;
   
